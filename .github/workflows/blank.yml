@@ -1,8 +1,11 @@
-name: run hello.py
+name: Run hello.py
 
 on:
   schedule:
-    - cron: '*/15 * * * *' #Every 15 minutes
+    - cron: '*/15 * * * *' # Every 15 minutes
+  push:
+    branches:
+      - Lab4 # Run only on the Lab4 branch
 
 jobs:
   build:
@@ -21,5 +24,5 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: execute py script # run main.py
-        run: python main.py
+      - name: execute py script
+        run: python hello.py # Run hello.py instead of main.py
