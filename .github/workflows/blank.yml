@@ -2,7 +2,7 @@ name: run hello.py
 
 on:
   schedule:
-    - cron: '*/15 * * * *' # Every 5 minutes
+    - cron: '*/30 * * * *' # Every 5 minutes
 
 jobs:
   build:
