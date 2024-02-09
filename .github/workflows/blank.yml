@@ -1,4 +1,4 @@
-name: run hello.py
+name: run bitcoin.py
 
 on:
   schedule:
