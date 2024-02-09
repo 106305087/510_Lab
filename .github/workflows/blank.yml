@@ -24,4 +24,4 @@ jobs:
           pip install -r requirements.txt
 
       - name: execute py script
-        run: python hello.py
+        run: python bitcoin.py
