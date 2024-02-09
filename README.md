@@ -2,7 +2,7 @@
 
 #### Overview
 1. Create a world clock `app.py` that displays time in different locations around the world and displays UNIX Timestamp
-2. Create a GitHub Action that runs `bitcoin.py` every 30 min periodically
+2. Create a GitHub Action that runs `bitcoin.py` every 30 min periodically. The action file `blank.yml` is at the main branch, but it can control the action on the branch Lab4
 
 #### How to run
 streamlit run app.py
