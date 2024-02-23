@@ -4,7 +4,7 @@ This is an AI assistant to help review your HCI document and give you structured
 
 ### Project Asset
 - app.py: streamlit application for WebApp
-- peisyc-techin510-lab6.azurewebsites.net
+- [peisyc-techin510-lab6.azurewebsites.net](https://peisyc-techin510-lab6.azurewebsites.net/)
 ### How to run
 ```
 python -m venv venv
