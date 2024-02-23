@@ -6,7 +6,7 @@ This is an interactive data visualization app for events in Seattle, which prese
 - `scraper.py`: Script to scrape website information
 - `db.py`: Contains utility functions for database connection
 - `data/`: JSONS files to store event data
-- [Azure Link](techin510-peisyc-lab5.azurewebsites.net)
+- [Azure Link](https://techin510-peisyc-lab5.azurewebsites.net/)
 ### How to run
 ```
 python -m venv venv
