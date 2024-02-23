@@ -19,7 +19,7 @@ st.set_page_config(
 
 if "messages" not in st.session_state.keys():  # Initialize the chat messages history
     st.session_state.messages = [
-        {"role": "assistant", "content": "Ask me a question about your document!"}
+        {"role": "assistant", "content": "Ask me some feedback about your HCI document!"}
     ]
 
 uploaded_file = st.file_uploader("Upload a file")
@@ -33,9 +33,11 @@ if uploaded_file:
             reader = PDFReader()
             docs = reader.load_data(tmp.name)
             llm = OpenAI(
+                api_key=os.getenv("OPENAI_API_KEY"),
+                base_url=os.getenv("OPENAI_API_BASE"),
                 model="gpt-3.5-turbo",
                 temperature=0.0,
-                system_prompt="You are an expert on the content of the document, provide detailed answers to the questions. Use the document to support your answers.",
+                system_prompt="You are an expert in HCI field. Give the document feedback in bullet point.Your answer should be structured and clear.",
             )
             index = VectorStoreIndex.from_documents(docs)
     os.remove(tmp.name)  # remove temp file
@@ -62,3 +64,5 @@ if st.session_state.messages[-1]["role"] != "assistant":
             st.write_stream(response.response_gen)
             message = {"role": "assistant", "content": response.response}
             st.session_state.messages.append(message)  # Add response to message history
+            print(prompt)
+            print(message)
