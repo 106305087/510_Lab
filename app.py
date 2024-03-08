@@ -35,7 +35,7 @@ if uploaded_file:
             llm = OpenAI(
                 api_key=os.getenv("OPENAI_API_KEY"),
                 base_url=os.getenv("OPENAI_API_BASE"),
-                model="gpt-3.5-turbo",
+                model="gpt-3.5-turbo-0125",
                 temperature=0.0,
                 system_prompt="You are an expert in HCI field. Give the document feedback in bullet point.Your answer should be structured and clear.",
             )
