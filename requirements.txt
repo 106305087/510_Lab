@@ -1,0 +1,12 @@
+streamlit
+firebase_admin
+pygwalker
+pandas
+matplotlib
+altair
+numpy
+python-dotenv
+openai
+llama-index
+nltk
+pypdf
