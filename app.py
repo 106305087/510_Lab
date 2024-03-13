@@ -18,18 +18,27 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Path to your Firebase Admin SDK private key
-cred_path = "/Users/choupei-hsuan/Desktop/UW MSTI/510/Final WebApp/firebase_credentials.json"
-
-# Firebase Database URL
-firebase_db_url = 'https://final-database-d82d1-default-rtdb.firebaseio.com/'
-
 # Initialize the Firebase Admin SDK
 if not firebase_admin._apps:
-    cred = credentials.Certificate(cred_path)
+    firebase_cred = {
+        "type": os.environ.get("FIREBASE_TYPE"),
+        "project_id": os.environ.get("FIREBASE_PROJECT_ID"),
+        "private_key_id": os.environ.get("FIREBASE_PRIVATE_KEY_ID"),
+        "private_key": os.environ.get("FIREBASE_PRIVATE_KEY"),
+        "client_email": os.environ.get("FIREBASE_CLIENT_EMAIL"),
+        "client_id": os.environ.get("FIREBASE_CLIENT_ID"),
+        "auth_uri": os.environ.get("FIREBASE_AUTH_URI"),
+        "token_uri": os.environ.get("FIREBASE_TOKEN_URI"),
+        "auth_provider_x509_cert_url": os.environ.get("FIREBASE_AUTH_PROVIDER_X509_CERT_URL"),
+        "client_x509_cert_url": os.environ.get("FIREBASE_CLIENT_X509_CERT_URL"),
+        "universe_domain": os.environ.get("FIREBASE_UNIVERSE_DOMAIN"),
+    }
+
+    cred = credentials.Certificate(firebase_cred)
     firebase_admin.initialize_app(cred, {
-        'databaseURL': firebase_db_url
+        'databaseURL': os.environ.get("FIREBASE_DB_URL")
     })
+
 
 st.set_page_config(
     page_title="Rehabilitation Assistant",
